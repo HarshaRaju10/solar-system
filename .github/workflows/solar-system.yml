@@ -54,8 +54,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-            name: Mocha-Test-Result
-            path: test-results.xml
+         name: Unit-Test-Report-${{ matrix.nodejs_version }}-${{ runner.os }}
+         path: ./test-results/
+         retention-days: 5
+
   code-coverage:
        runs-on: ubuntu-latest
 
@@ -83,11 +85,10 @@ jobs:
         - name: Step 5 - Upload Code Coverage Report
           uses: actions/upload-artifact@v4
           with:
-           name: Code-Coverage-Result-${{ github.job }}
-
-
+           name: Code-Coverage-Result-${{ matrix.nodejs_version || github.job }}
            path: coverage
            retention-days: 5
+
 
 
 

@@ -37,7 +37,18 @@ jobs:
         run: npm install
 
       - name: Unit Testing
+        id: nodejs-unit-testing-step
         run: npm test
+
+      - name: Archive Test Result
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Mocha-Test-Result
+          path: test-results.xml  
+
+
+
 
 
 

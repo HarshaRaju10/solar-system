@@ -143,7 +143,8 @@ jobs:
         push: true
         tags: |
           ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
-          ghcr.io/${{github.repository_owner}}/solar-system:${{github.sha}}
+          ghcr.io/harsharaju10/solar-system:${{ github.sha }}
+
 
 
 
